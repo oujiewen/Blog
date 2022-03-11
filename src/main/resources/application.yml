@@ -1,0 +1,42 @@
+server:
+  port: 8082
+spring:
+  servlet:
+    context-path: /Blog
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 1MB
+  http:
+    multipart:
+      resolve-lazily=true:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource #s数据源的类型
+    driver-class-name: com.mysql.jdbc.Driver #mysql 驱动
+    hikari:
+      connection-timeout: 30000 #等待连接池分配链接的最大时长（毫秒）
+      minimum-idle: 5 #最小链接数
+      maximum-pool-size: 20 #最大链接数
+      idle-timeout: 600000 #链接超时的最大时长（毫秒）超时则被释放
+      pool-name: DataSourceHikariCP #链接池名称
+      connection-test-query: SELECT 1
+    url: jdbc:mysql://123.207.4.152:3306/blog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: ouwenblog
+    password: blog146!aA
+
+#mybatis 配置
+mybatis:
+  type-aliases-package: com.owenblog.db.dao
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  通用mapper配置
+#mapper:
+#  mappers: com.oujiewen.test.my.mapper.MyMapper
+#  not-empty: false #在进行数据库操作的时候，判断一个属性是否为空的时候，是否需要自动追加不为空
+#                  #username != null 后面不需要username!="
+#  identity: MYSQL
+
+#分页插件助手的配置
+pagehelper:
+  auto-dialect: mysql
+  support-methods-arguments: true

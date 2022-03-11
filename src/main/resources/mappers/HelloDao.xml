@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.owenblog.db.dao.HelloDao">
+    <select id="searchbyid" parameterType="Integer" resultType="HashMap">
+        SELECT * FROM blog2_article where id = #{id}
+    </select>
+
+    <select id="searchall" parameterType="Integer" resultType="HashMap">
+        SELECT * FROM blog2_article
+    </select>
+</mapper>
