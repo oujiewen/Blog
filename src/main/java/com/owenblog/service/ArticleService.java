@@ -1,9 +1,11 @@
 package com.owenblog.service;
 
-import java.util.ArrayList;
+import com.owenblog.util.PageUtils;
+
 import java.util.HashMap;
 
 public interface ArticleService {
-    public ArrayList<HashMap> getAllArticles();
+    public PageUtils SearchArticles(HashMap searchFrom);
+
 
 }
