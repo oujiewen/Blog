@@ -28,4 +28,11 @@
         select count(*) from blog2_article
     </select>
 
+    <select id="SearchHotArticles" resultType="HashMap">
+        select * from blog2_article where ishot=1 order by create_time desc limit 5
+    </select>
+
+    <select id="SearchArticleById" parameterType="Integer" resultType="HashMap">
+        select * from blog2_article where id=#{id}
+    </select>
 </mapper>

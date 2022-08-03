@@ -1,6 +1,6 @@
 package com.owenblog.service.Impl;
 
-import com.owenblog.controller.blog.form.searchArticlesForm;
+import com.owenblog.Exception.MyException;
 import com.owenblog.db.dao.ArticleDao;
 import com.owenblog.service.ArticleService;
 import com.owenblog.util.PageUtils;
@@ -23,4 +23,14 @@ public class ArticleServiceImpl implements ArticleService {
         return page;
     }
 
+    @Override
+    public ArrayList<HashMap> SearchHotArticles() {
+        ArrayList<HashMap> hotArticles=articleDao.SearchHotArticles();
+        return hotArticles;
+    }
+
+    @Override
+    public HashMap SearchArticleById(Integer id) {
+        return articleDao.SearchArticleById(id);
+    }
 }

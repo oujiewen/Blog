@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.owenblog.db.dao.UserDao">
+    <select id="login" parameterType="HashMap" resultType="HashMap">
+        SELECT
+            id,status
+        FROM USER  WHERE NAME="oujiewen" AND  PASSWORD=HEX(AES_ENCRYPT("a5565473", "ouujiewen"))
+        ORDER BY updateTime DESC
+            LIMIT 1
+
+    </select>
+</mapper>

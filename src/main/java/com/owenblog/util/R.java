@@ -1,10 +1,8 @@
 package com.owenblog.util;
 
-import org.springframework.http.HttpStatus;
-
 import java.util.HashMap;
 
-public class JsonResult extends HashMap<String ,Object> {
+public class R extends HashMap<String ,Object> {
     private  Integer SUCCESS=200;
 
     private Integer ERROR=500;
@@ -13,33 +11,33 @@ public class JsonResult extends HashMap<String ,Object> {
 
     private Integer LOGOUT=400;
 
-    public JsonResult(){
+    public R(){
         put("code",SUCCESS);
         put("msg","SUCCESS");
     }
 
-    public JsonResult put(String key, Object value){
+    public R put(String key, Object value){
         super.put(key , value);
         return this;
     }
 
-    public static JsonResult ok(){return new JsonResult();};
+    public static R ok(){return new R();};
 
-    public  static JsonResult nologin(){
-        JsonResult res=new JsonResult();
+    public  static R nologin(){
+        R res=new R();
         res.put("code", res.LOGOUT);
         res.put("msg" , "用户未登陆");
         return res;
     }
 
-    public static JsonResult ok(Object object){
-        JsonResult res=new JsonResult();
+    public static R ok(Object object){
+        R res=new R();
         res.put("data" , object);
         return res;
     }
 
-    public static  JsonResult eroor(String msg){
-        JsonResult res=new JsonResult();
+    public static R eroor(String msg){
+        R res=new R();
         res.put("code", res.ERROR);
         res.put("msg",msg);
         return res;

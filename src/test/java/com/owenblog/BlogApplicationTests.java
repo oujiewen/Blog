@@ -1,6 +1,6 @@
-package com.test;
+package com.owenblog;
 
-import com.owenblog.db.dao.HelloDao;
+import com.owenblog.db.dao.ArticleDao;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,14 +8,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
 @SpringBootTest
-public class helloDaoTest {
+public class BlogApplicationTests {
 
     @Autowired
-    private HelloDao hd;
+    private ArticleDao articleDao;
 
     @Test
     void mytes(){
-        hd.searchall();
+        log.info(articleDao.SearchArticleById(2).toString());
     }
 
 

@@ -1,7 +1,6 @@
-package com.owenblog.controller.blog.form;
+package com.owenblog.controller.form;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
 public class searchArticlesForm {
